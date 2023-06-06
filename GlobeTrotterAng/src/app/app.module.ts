@@ -13,8 +13,10 @@ import { HomeComponent } from './home/home.component';
 import { MaterialModule } from '../material.module';
 import { SignupComponent } from './signup/signup.component'
 import { InterceptorService } from './service/interceptor.service';
-import { ToastrModule } from 'ngx-toastr';
 import { AddvoyageComponent } from './addvoyage/addvoyage.component';
+import { NewdayComponent } from './newday/newday.component';
+import { EditdayComponent } from './editday/editday.component';
+import { EditvoyageComponent } from './editvoyage/editvoyage.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,10 @@ import { AddvoyageComponent } from './addvoyage/addvoyage.component';
     LoginComponent,
     HomeComponent,
     SignupComponent,
-    AddvoyageComponent
+    AddvoyageComponent,
+    NewdayComponent,
+    EditdayComponent,
+    EditvoyageComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +36,6 @@ import { AddvoyageComponent } from './addvoyage/addvoyage.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ToastrModule.forRoot(),
     MaterialModule,
     ReactiveFormsModule,
     JwtModule.forRoot({
