@@ -15,9 +15,10 @@ export class VoyageService {
     return this.http.get(this.baseUrl + 'voyages');
   }
 
-  getUserVoyages(user_id: number): Observable<any> {
-    const url = `${this.baseUrl + 'voyages?user_id=' + user_id}`;	
-    return this.http.get(url);
+  getUserVoyages(user_id: string): Observable<any> {
+    const url = `${this.baseUrl + 'voyages?user_id=' + user_id}`;
+    // console.log('URL: ', url)
+    return this.http.get<any>(url);
   }
 
   addVoyage(voyage: any): Observable<any> {
@@ -40,7 +41,7 @@ export class VoyageService {
   }
 
   searchVoyages(search: string): Observable<any> {
-    const url = `${this.baseUrl + 'search/voyages?name=' + search}`;
+    const url = `${this.baseUrl + 'search/voyages?user_id=' + search}`;
     // console.log('URL: ', url)
     return this.http.get<any>(url);
   }
