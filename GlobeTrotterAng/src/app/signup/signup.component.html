@@ -1,0 +1,30 @@
+<div></div>
+<div>
+    <h1 class="title">Create your account</h1>   
+</div>
+
+<div>
+    <form [formGroup]="signupform" (ngSubmit)="submitSignup()">
+        <div>
+            <label>Username</label>
+            <input class="inputbox" formControlName="username">
+        </div>
+        <div>
+            <label>Firstname</label>
+            <input class="inputbox" formControlName="firstname">
+        </div>
+        <div>
+            <label>Lastname</label>
+            <input class="inputbox" formControlName="lastname">
+        </div>
+        <div>
+            <label>Password</label>
+            <input type="password" class="inputbox" formControlName="password">
+        </div>
+        <div class="error" *ngIf="errorMessage">{{errorMessage}}</div><br>
+        <div class="submit">
+            <button class="button register" type="submit">Create my account</button>
+            <button class="button" routerLink="/login">Cancel</button>
+        </div>
+    </form>
+</div>

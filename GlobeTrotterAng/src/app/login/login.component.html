@@ -1,1 +1,22 @@
-<p>login works!</p>
+<div></div>
+<div>
+    <h1 class="title">GlobeTrotter</h1><br>
+</div>
+
+<div>
+    <form [formGroup]="loginform" (ngSubmit)="submitLogin()">
+        <div>
+            <label>Username</label>
+            <input class="inputbox" matInput formControlName="username">
+        </div>
+        <div>
+            <label>Password</label>
+            <input class="inputbox" type="password" matInput formControlName="password">
+        </div><br>
+        <div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
+        <div>
+            <button class="button" type="submit">Login</button><br><br><br><br><br>
+            <button class="button register" routerLink="/signup">New account</button>
+        </div>
+    </form>
+</div>

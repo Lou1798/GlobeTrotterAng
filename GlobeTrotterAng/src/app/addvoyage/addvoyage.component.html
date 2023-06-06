@@ -1,0 +1,18 @@
+<app-header [previousPage]="previousPage"></app-header>
+<div>
+  <h2>Add a new adventure!</h2>
+</div>
+
+<div>
+  <form [formGroup]="voyageForm" (ngSubmit)="submitVoyage()">  
+    <div class="form">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Please enter a name" formControlName="name">
+    </div>
+    <div class="error" *ngIf="errorMessage">{{errorMessage}}</div><br>
+    <div class="submit">
+      <button class="button save" type="submit">Save</button>
+      <button class="button" routerLink="/home">Cancel</button>
+    </div>
+  </form>
+</div>

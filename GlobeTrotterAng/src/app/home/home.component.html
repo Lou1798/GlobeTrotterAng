@@ -1,0 +1,24 @@
+<app-header [previousPage]="previousPage"></app-header>
+<div class="center">
+    <h2>My voyages</h2>
+    <button class="button" routerLink="/addvoyage">Add voyage</button>
+  </div>
+  
+  <div class="center">
+    <input type="text" class="form-control" placeholder="Enter a name" [(ngModel)]="searchText" (input)="searchVoyages()">
+  </div>
+  
+  <div class="content center">
+    <div fxLayout="row wrap" fxLayoutGap="16px grid">
+      <div 
+        fxFlex="33%" 
+        fxFlex.xs="100%"
+        fxFlex.sm="33%"
+        *ngFor="let voyage of voyages">
+        <div class="card">
+            <div class="card-title">{{ voyage.name }}</div>
+            <div class="card-description">Description du voyage 1</div>
+        </div>
+      </div>
+    </div>
+  </div>
