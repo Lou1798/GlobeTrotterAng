@@ -12,11 +12,11 @@ import { UserService } from '../service/user.service';
   styleUrls: ['./addvoyage.component.css']
 })
 export class AddvoyageComponent {
+  // initialisation du formulaire, message d'erreur...
   voyageForm!: FormGroup;
   voyages: any[] = [];
   voyage!: any;
   errorMessage!: string;
-  previousPage: string = '/home';
 
   constructor(
     private builder: FormBuilder, 
@@ -26,6 +26,7 @@ export class AddvoyageComponent {
     
     ) { }
 
+    //id de l'utilisateur récupéré depuis le UserService
     userid = this.user.getUserId();
 
   ngOnInit() {
@@ -37,16 +38,15 @@ export class AddvoyageComponent {
 
   }
   
-  // get the form controls and validate; if valid, call the service (create a user)
+  // get the form value; if valid create a user
   submitVoyage(){
     if(this.voyageForm.valid){
       this.voyageService.addVoyage(this.voyageForm.value).subscribe({
         next: (response:any) => {
-          //go back to home
+          //redirige vers page d'acceuil
           this.router.navigate(['/home']); 
         },
         error : (error:any) => {
-          console.log(error);
           this.errorMessage = error.error.message;
         }
       });

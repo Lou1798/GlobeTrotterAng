@@ -9,9 +9,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
+  //Initialisation
   errorMessage!: string;
 
-  constructor(private builder: FormBuilder, private service: UserService, private router: Router) {
+  constructor(private builder: FormBuilder, 
+    private service: UserService, 
+    private router: Router) {
 
   }
 
@@ -23,8 +26,9 @@ export class SignupComponent {
     password:this.builder.control('',Validators.required),
   });
 
-  // get the form controls and validate; if valid, call the service (create a user)
+  
   submitSignup(){
+    //si le form est valid create a user
     if(this.signupform.valid){
       this.service.signupUser(this.signupform.value).subscribe({
         next: (response:any) => {
@@ -36,7 +40,7 @@ export class SignupComponent {
         }
       });
     } else {
-      this.errorMessage = 'Please, fill all the fiels correctly';
+      this.errorMessage = 'Please, fill all the fields correctly';
     }
   }
 }

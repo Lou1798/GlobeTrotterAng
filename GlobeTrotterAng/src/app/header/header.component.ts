@@ -10,22 +10,21 @@ import { MatMenuTrigger } from '@angular/material/menu';
 })
 export class HeaderComponent {
  
-  @Input() previousPage!: String;
-
-  constructor(private userService: UserService, private router: Router) {}
-
+  constructor(private userService: UserService, 
+    private router: Router) {}
+  
+  //Récupère le nom d'utilisateur à partir de service UserService
   username = this.userService.getUsername();
   
   logout() {
+     // Déconnecte l'utilisateur en appelant la méthode logout() du service UserService
     this.userService.logout();
+    //Redirige vers login 
     this.router.navigate(['/login']);
   }
 
-  back() {
-    this.router.navigate([this.previousPage])
-  }
-
   isHomePage(): boolean {
+    // Vérifie si l'URL actuelle contient le mot "home"
     return window.location.href.includes("home");
 }
 

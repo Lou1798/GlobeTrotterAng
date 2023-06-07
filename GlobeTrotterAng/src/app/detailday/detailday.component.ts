@@ -11,20 +11,27 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./detailday.component.css']
 })
 export class DetaildayComponent {
-  
-  previousPage!: any;
+  //Initialisation du message d'erreur...
   day!: any;
   errorMessage!: string;
 
 
-  constructor (private route: ActivatedRoute, private service:UserService, private dayService: DayService, private voyageService: VoyageService, private authService: AuthService, private router: Router) {
+  constructor (private route: ActivatedRoute, 
+    private service:UserService, 
+    private dayService: DayService, 
+    private voyageService: VoyageService, 
+    private authService: AuthService, 
+    private router: Router) {
     
   }
 
+  //id du jour récupéré depuis les paramètres de l'URL
   dayid = this.route.snapshot.paramMap.get('day_id')?.toString();
+  //Pour formatter la date au format d'affichage voulu
   formattedDate!: string;
 
   ngOnInit(): void {
+    //récupère les détails du jour on init
     this.getDay();
     }
 
@@ -34,7 +41,8 @@ export class DetaildayComponent {
     this.day = this.dayService.getDay(this.dayid).subscribe(
       day => {
         this.day = day;
-        this.previousPage = '/home/' + this.day.voyage_id;
+        //Formatage de la date après récupération dans le format décidé
+        //ici à l'américaine
         const dateString = this.day.specifiedTime;
         const date = new Date(dateString);
         const options: Intl.DateTimeFormatOptions = { 
@@ -50,15 +58,15 @@ export class DetaildayComponent {
  }
 
  deleteDay() {
-  if(confirm("Are you sure you want to delete this usage?")) {
+  if(confirm("Are you sure you want to delete this day?")) {
   this.dayService.deleteDay(this.day.day_id).subscribe({
     next: (response:any) => {
       console.log(response);
+      // Redirige vers la page de détail du voyage
       let route: string = '/home/' + this.day.voyage_id;
-      this.router.navigate([route]); // Navigate to vehicle page
+      this.router.navigate([route]); 
     },
     error : (error:any) => {
-      console.log(error);
       this.errorMessage = error.error.message;
     }
   });

@@ -11,7 +11,6 @@ import { FormsModule } from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
-import { MaterialModule } from '../material.module';
 import { SignupComponent } from './signup/signup.component'
 import { InterceptorService } from './service/interceptor.service';
 import { AddvoyageComponent } from './addvoyage/addvoyage.component';
@@ -64,19 +63,18 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatDatepickerModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MaterialModule,
     MatMenuModule,
     MatIconModule,
     MatInputModule,
-        MatSelectModule,
-        MatCardModule,
-        MatRadioModule,
-        MatCheckboxModule,
-        MatTableModule,
-        MatPaginatorModule,
-        MatSortModule,
-        MatDialogModule,
-        MatButtonModule,
+    MatSelectModule,
+    MatCardModule,
+    MatRadioModule,
+    MatCheckboxModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatDialogModule,
+    MatButtonModule,
     ReactiveFormsModule,
     JwtModule.forRoot({
       config: {
