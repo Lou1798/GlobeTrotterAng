@@ -1,0 +1,23 @@
+<app-header [previousPage]="previousPage"></app-header>
+<body>
+    <div class="card">
+        <div class="actions">
+            <button class="button" (click)="deleteDay()">Delete
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                  </svg>
+            </button>
+            
+            <button class="button" routerLink="/editday/{{ day.day_id }}">Edit
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                  </svg>
+            </button>
+          
+        </div>
+        <h2>{{day.title}}</h2>
+        <p>Date: {{formattedDate}}</p>
+        <p>Location: {{day.specifiedLocation}}</p><br><br><br>
+        <p>{{day.content}}</p>
+    </div>
+  </body>

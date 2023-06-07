@@ -14,6 +14,7 @@ import { UserService } from '../service/user.service';
 export class AddvoyageComponent {
   voyageForm!: FormGroup;
   voyages: any[] = [];
+  voyage!: any;
   errorMessage!: string;
   previousPage: string = '/home';
 

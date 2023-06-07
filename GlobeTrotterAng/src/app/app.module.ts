@@ -17,6 +17,8 @@ import { AddvoyageComponent } from './addvoyage/addvoyage.component';
 import { NewdayComponent } from './newday/newday.component';
 import { EditdayComponent } from './editday/editday.component';
 import { EditvoyageComponent } from './editvoyage/editvoyage.component';
+import { ListdayComponent } from './listday/listday.component';
+import { DetaildayComponent } from './detailday/detailday.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { EditvoyageComponent } from './editvoyage/editvoyage.component';
     AddvoyageComponent,
     NewdayComponent,
     EditdayComponent,
-    EditvoyageComponent
+    EditvoyageComponent,
+    ListdayComponent,
+    DetaildayComponent
   ],
   imports: [
     CommonModule,

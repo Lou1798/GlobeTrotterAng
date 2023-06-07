@@ -1,1 +1,31 @@
-<p>newday works!</p>
+<app-header [previousPage]="previousPage"></app-header>
+<div>
+  <h2>Add a new day to your adventure!</h2>
+</div>
+
+<div>
+  <form [formGroup]="dayform" (ngSubmit)="submitDay()">  
+        <div class="form">
+          <label for="title">Title</label>
+          <input type="text" id="title" name="title" placeholder="Please enter a title" formControlName="title">
+        </div>
+        <div class="form">
+          <label for="content">Content</label>
+          <input type="content" id="content" name="content" placeholder="Please enter a content" formControlName="content">
+        </div>
+        <div class="form">
+          <label for="specifiedTime">Specified Time</label>
+          <input type="date" id="specifiedTime" name="specifiedTime" placeholder="Please enter a specified time" formControlName="specifiedTime">
+        </div>
+        <div class="form">
+          <label for="specifiedLocation">Specified Location</label>
+          <input type="text" id="specifiedLocation" name="specifiedLocation" placeholder="Please enter a specified location" formControlName="specifiedLocation">
+        </div>
+        <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div><br>
+        <div class="submit">
+          <button class="button save" type="submit">Save</button>
+          <button class="button" routerLink="/home/{{voyage.voyage_id}}">Cancel</button>
+        </div>
+      </form>
+      
+</div>

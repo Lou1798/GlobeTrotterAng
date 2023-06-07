@@ -25,23 +25,29 @@ export class VoyageService {
     return this.http.post<any>(this.baseUrl + 'voyage', voyage);
   }
 
-  getVoyage(voyage_id: number): Observable<any> {
+  getVoyage(voyage_id: string): Observable<any> {
     const url = `${this.baseUrl + 'voyage'}/${voyage_id}`;
     return this.http.get<any>(url);
   }
 
-  updateVoyage(vehicle_id: number, vehicle: any): Observable<any> {
-    const url = `${this.baseUrl + 'vehicle'}/${vehicle_id}`;
+  updateVoyage(voyage_id: number, vehicle: any): Observable<any> {
+    const url = `${this.baseUrl + 'voyage'}/${voyage_id}`;
     return this.http.put<any>(url, vehicle);
   }
 
-  deleteVoyage(vehicle_id: number): Observable<any> {
-    const url = `${this.baseUrl + 'vehicle' }/${vehicle_id}`;
+  deleteVoyage(voyage_id: number): Observable<any> {
+    const url = `${this.baseUrl + 'voyage' }/${voyage_id}`;
     return this.http.delete<any>(url);
   }
 
   searchVoyages(search: string): Observable<any> {
-    const url = `${this.baseUrl + 'search/voyages?user_id=' + search}`;
+    const url = `${this.baseUrl + 'voyage?name=' + search}`;
+    // console.log('URL: ', url)
+    return this.http.get<any>(url);
+  }
+
+  searchNameVoyages(search: string): Observable<any> {
+    const url = `${this.baseUrl + 'voyage?name=' + search}`;
     // console.log('URL: ', url)
     return this.http.get<any>(url);
   }

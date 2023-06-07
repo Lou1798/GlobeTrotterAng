@@ -1,1 +1,30 @@
-<p>editday works!</p>
+<app-header [previousPage]="previousPage"></app-header>
+<div>
+  <h2>Change your day</h2>
+</div>
+
+<div>
+  <form [formGroup]="updateDayForm" (ngSubmit)="submitDayUpdate()">  
+    <div class="form">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title"  formControlName="title">
+      </div>
+      <div class="form">
+        <label for="content">Content</label>
+        <textarea type="content" id="content" name="content"  formControlName="content" rows="6"></textarea>
+      </div>
+      <div class="form">
+        <label for="specifiedTime">Specified Time</label>
+        <input type="date" id="specifiedTime" name="specifiedTime"  formControlName="specifiedTime">
+      </div>
+      <div class="form">
+        <label for="specifiedLocation">Specified Location</label>
+        <input type="text" id="specifiedLocation" name="specifiedLocation"   formControlName="specifiedLocation">
+      </div>
+      <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div><br>
+      <div class="submit">
+        <button class="button save" type="submit">Save</button>
+        <button class="button" routerLink="/detailday/{{day.day_id}}">Cancel</button>
+      </div>
+  </form>
+</div>

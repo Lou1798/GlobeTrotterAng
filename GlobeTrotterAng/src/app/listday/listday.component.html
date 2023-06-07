@@ -1,0 +1,23 @@
+<app-header [previousPage]="previousPage"></app-header>
+<div class="center">
+    <h1>{{ voyage.name }}</h1>
+    <h2>My days</h2>
+    <button class="button" routerLink="/newday/{{ voyage.voyage_id }}">Add day</button>
+    <button class="button" routerLink="/editvoyage/{{ voyage.voyage_id }}">Modify Voyage</button>
+  </div>
+  
+  
+  <div class="content center">
+    <div fxLayout="row wrap" fxLayoutGap="16px grid">
+      <div 
+        fxFlex="33%" 
+        fxFlex.xs="100%"
+        fxFlex.sm="33%"
+        *ngFor="let day of days">
+        <div class="card" routerLink="/detailday/{{ day.day_id }}">
+            <div class="card-title">{{ day.title }}</div>
+            <div class="card-description">{{ day.content }}</div>
+        </div>
+      </div>
+    </div>
+  </div>

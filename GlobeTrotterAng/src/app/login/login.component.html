@@ -1,9 +1,6 @@
-<div></div>
-<div>
-    <h1 class="title">GlobeTrotter</h1><br>
-</div>
-
-<div>
+<div class="card-container">
+<div class = "card">
+    <h1 class="title">GlobeTrotter</h1><br><br><br>
     <form [formGroup]="loginform" (ngSubmit)="submitLogin()">
         <div>
             <label>Username</label>
@@ -14,9 +11,11 @@
             <input class="inputbox" type="password" matInput formControlName="password">
         </div><br>
         <div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
-        <div>
-            <button class="button" type="submit">Login</button><br><br><br><br><br>
+        <div class="contButton">
+            <button class="button" type="submit">Login</button><p>     </p>
             <button class="button register" routerLink="/signup">New account</button>
         </div>
     </form>
+
+</div>
 </div>

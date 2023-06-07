@@ -1,9 +1,6 @@
-<div></div>
-<div>
-    <h1 class="title">Create your account</h1>   
-</div>
-
-<div>
+<div class="card-container">
+<div class="card">
+    <h1 class="title">Create your account</h1> <br><br><br>  
     <form [formGroup]="signupform" (ngSubmit)="submitSignup()">
         <div>
             <label>Username</label>
@@ -22,9 +19,10 @@
             <input type="password" class="inputbox" formControlName="password">
         </div>
         <div class="error" *ngIf="errorMessage">{{errorMessage}}</div><br>
-        <div class="submit">
-            <button class="button register" type="submit">Create my account</button>
+        <div class="contButton">
+            <button class="button register" type="submit">Create my account</button><p>     </p>
             <button class="button" routerLink="/login">Cancel</button>
         </div>
     </form>
+</div>
 </div>

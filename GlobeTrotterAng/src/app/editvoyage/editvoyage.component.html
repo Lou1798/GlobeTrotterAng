@@ -1,1 +1,18 @@
-<p>editvoyage works!</p>
+<app-header [previousPage]="previousPage"></app-header>
+<div>
+  <h2>Change your adventure</h2>
+</div>
+
+<div>
+  <form [formGroup]="updateVoyageForm" (ngSubmit)="submitVoyageUpdate()">  
+    <div class="form">
+        <label for="name">Name</label>
+      <input type="text" id="name" name="name" formControlName="name" value="{{ voyage.name }}">
+    </div>
+    <div class="error" *ngIf="errorMessage">{{errorMessage}}</div><br>
+    <div class="submit">
+      <button class="button save" type="submit">Save</button>
+      <button class="button" routerLink="/home/{{ voyage.voyage_id }}">Cancel</button>
+    </div>
+  </form>
+</div>

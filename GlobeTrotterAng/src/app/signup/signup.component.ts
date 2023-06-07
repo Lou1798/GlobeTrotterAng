@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
 import { UserService } from '../service/user.service';
 import { Router } from '@angular/router';
 
@@ -12,7 +11,7 @@ import { Router } from '@angular/router';
 export class SignupComponent {
   errorMessage!: string;
 
-  constructor(private builder: FormBuilder, private toastr: ToastrService, private service: UserService, private router: Router) {
+  constructor(private builder: FormBuilder, private service: UserService, private router: Router) {
 
   }
 

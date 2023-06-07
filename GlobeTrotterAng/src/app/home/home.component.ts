@@ -58,7 +58,22 @@ export class HomeComponent {
         }
       )
     } else {
-      this.getVoyages();
+      this.getUserVoyages();
+    }
+  }
+
+  searchNameVoyages(): void {
+    if (this.searchText) {
+      this.voyageService.searchNameVoyages(this.searchText).subscribe(
+        (voyagedata: any) => {
+          this.voyages = voyagedata;
+        },
+        (error: any) => {
+          console.log(error.error.message);
+        }
+      )
+    } else {
+      this.getUserVoyages();
     }
   }
 }
