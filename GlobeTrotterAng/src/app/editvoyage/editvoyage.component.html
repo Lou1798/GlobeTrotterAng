@@ -1,18 +1,17 @@
 <app-header [previousPage]="previousPage"></app-header>
-<div>
-  <h2>Change your adventure</h2>
-</div>
-
-<div>
+<div class="center">
+<div class="form-container alignement">
+  <h2 class="mat-display-2" style="font-family: Roboto;">Change your adventure</h2>
   <form [formGroup]="updateVoyageForm" (ngSubmit)="submitVoyageUpdate()">  
-    <div class="form">
-        <label for="name">Name</label>
-      <input type="text" id="name" name="name" formControlName="name" value="{{ voyage.name }}">
-    </div>
-    <div class="error" *ngIf="errorMessage">{{errorMessage}}</div><br>
+    <mat-form-field class="form">
+      <mat-label>Name</mat-label>
+      <input matInput type="text" id="name" name="name" formControlName="name" value="{{ voyage.name }}">
+    </mat-form-field>
+    <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div><br>
     <div class="submit">
-      <button class="button save" type="submit">Save</button>
-      <button class="button" routerLink="/home/{{ voyage.voyage_id }}">Cancel</button>
+      <button mat-raised-button class="button save" type="submit" style="margin-right:10px;margin-left:30px;">Save</button>
+      <button mat-raised-button class="button" routerLink="/home/{{ voyage.voyage_id }}">Cancel</button>
     </div>
   </form>
+</div>
 </div>

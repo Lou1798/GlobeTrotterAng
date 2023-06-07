@@ -1,18 +1,17 @@
 <app-header [previousPage]="previousPage"></app-header>
-<div>
-  <h2>Add a new adventure!</h2>
-</div>
-
-<div>
+<div class="center">
+<div class="form-container alignement">
+  <h2 class="mat-display-2" style="font-family: Roboto;">Add a new adventure!</h2>
   <form [formGroup]="voyageForm" (ngSubmit)="submitVoyage()">  
-    <div class="form">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" placeholder="Please enter a name" formControlName="name">
-    </div>
-    <div class="error" *ngIf="errorMessage">{{errorMessage}}</div><br>
+    <mat-form-field class="form">
+      <mat-label>Name</mat-label>
+      <input matInput type="text" id="name" name="name" placeholder="Please enter a name" formControlName="name">
+    </mat-form-field>
+    <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div><br>
     <div class="submit">
-      <button class="button save" type="submit">Save</button>
-      <button class="button" routerLink="/home">Cancel</button>
+      <button mat-raised-button class="button save" type="submit" style="margin-right:10px;margin-left:30px;" color="Secondary">Save</button>
+      <button mat-raised-button class="button" routerLink="/home">Cancel</button>
     </div>
   </form>
+</div>
 </div>

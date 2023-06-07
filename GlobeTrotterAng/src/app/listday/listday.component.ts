@@ -14,6 +14,7 @@ export class ListdayComponent {
   previousPage: string = '/home';
 
   days: any[] = [];
+  dates: any[] = [];
   voyage!: any;
   searchText!: string;
 
@@ -48,6 +49,7 @@ export class ListdayComponent {
     this.dayService.getDays().subscribe({
       next: (daydata: any) => {
             this.days = daydata;
+            
           },
           error: (error: any) => {
             console.log(error.error.message);
@@ -55,12 +57,15 @@ export class ListdayComponent {
         });
   }
 
+ 
+
   getDayVoyages(): void {
     if (typeof this.voyageid === 'string') {
       console.log(this.voyageid)
       this.dayService.getDayVoyages(this.voyageid).subscribe({
         next: (daydata: any) => {
               this.days = daydata;
+              this.formatDatesForDays();
             },
             error: (error: any) => {
               console.log(error.error.message);
@@ -70,6 +75,20 @@ export class ListdayComponent {
       console.log('No voyage id was found');
     }
     
+  }
+
+  formatDatesForDays(): void {
+    const options: Intl.DateTimeFormatOptions = {
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric'
+    };
+  
+    this.days.forEach((day: any) => {
+      const dateString = day.specifiedTime;
+      const date = new Date(dateString);
+      day.formattedDate = date.toLocaleDateString('en-US', options);
+    });
   }
 
   searchDays(): void {

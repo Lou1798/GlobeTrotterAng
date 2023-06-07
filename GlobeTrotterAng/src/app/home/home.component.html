@@ -1,24 +1,15 @@
 <app-header [previousPage]="previousPage"></app-header>
+
 <div class="center">
-    <h2>My voyages</h2>
-    <button class="button" routerLink="/addvoyage">Add voyage</button>
-  </div>
-  
-  <div class="center">
-    <input type="text" class="form-control" placeholder="Enter a name" [(ngModel)]="searchText" (input)="searchNameVoyages()">
-  </div>
-  
-  <div class="content center">
-    <div fxLayout="row wrap" fxLayoutGap="16px grid">
-      <div 
-        fxFlex="33%" 
-        fxFlex.xs="100%"
-        fxFlex.sm="33%"
-        *ngFor="let voyage of voyages">
-        <div class="card" routerLink="/home/{{ voyage.voyage_id }}" >
-            <div class="card-title">{{ voyage.name }}</div>
-            <div class="card-description">Description du voyage 1</div>
-        </div>
+  <h1 class="mat-display-1" style="font-family: Roboto;">My Voyages</h1>
+  <div style="margin: 20px;">
+    <button mat-fab color="primary" style="margin-right: 10px;" routerLink="/addvoyage">
+        <mat-icon>add</mat-icon>
+      </button>
       </div>
-    </div>
+  <mat-grid-list cols="4" rowHeight="2:1" gutterSize="15px">
+    <mat-grid-tile *ngFor="let voyage of voyages" class="mat-elevation-z4" style="border-radius: 4px;" routerLink="/home/{{ voyage.voyage_id }}">
+      <span class="writing" >{{ voyage.name }}</span>
+      </mat-grid-tile>
+  </mat-grid-list>
   </div>

@@ -1,31 +1,34 @@
 <app-header [previousPage]="previousPage"></app-header>
-<div>
-  <h2>Add a new day to your adventure!</h2>
+<div class="center">
+  
+  
+  <div class="form-container alignement">
+    <h2 class="mat-display-2" style="font-family: Roboto;">Add a new day to your adventure!</h2>
+    <form [formGroup]="dayform" (ngSubmit)="submitDay()">  
+      <mat-form-field class="form">
+        <mat-label>Title</mat-label>
+        <input matInput type="text" id="title" name="title" placeholder="Please enter a title" formControlName="title">
+      </mat-form-field>
+      <mat-form-field class="form">
+        <mat-label>Content</mat-label>
+        <input matInput type="content" id="content" name="content" placeholder="Please enter a content" formControlName="content">
+      </mat-form-field>
+      <mat-form-field class="form">
+        <mat-label>Date</mat-label>
+        <input matInput [matDatepicker]="specifiedTimePicker" type="text" id="specifiedTime" name="specifiedTime" placeholder="Please enter a specified time" formControlName="specifiedTime">
+        <mat-datepicker-toggle matSuffix [for]="specifiedTimePicker"></mat-datepicker-toggle>
+        <mat-datepicker #specifiedTimePicker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="form">
+        <mat-label>Location</mat-label>
+        <input matInput type="text" id="specifiedLocation" name="specifiedLocation" placeholder="Please enter a specified location" formControlName="specifiedLocation">
+      </mat-form-field>
+      <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div><br>
+      <div class="submit">
+        <button mat-raised-button color="primary" type="submit" style="margin-right:10px;margin-left:30px;">Save</button>
+        <button mat-raised-button color="primary" routerLink="/home/{{ voyage.voyage_id }}">Cancel</button>
+      </div>
+    </form>
+  </div>   
 </div>
 
-<div>
-  <form [formGroup]="dayform" (ngSubmit)="submitDay()">  
-        <div class="form">
-          <label for="title">Title</label>
-          <input type="text" id="title" name="title" placeholder="Please enter a title" formControlName="title">
-        </div>
-        <div class="form">
-          <label for="content">Content</label>
-          <input type="content" id="content" name="content" placeholder="Please enter a content" formControlName="content">
-        </div>
-        <div class="form">
-          <label for="specifiedTime">Specified Time</label>
-          <input type="date" id="specifiedTime" name="specifiedTime" placeholder="Please enter a specified time" formControlName="specifiedTime">
-        </div>
-        <div class="form">
-          <label for="specifiedLocation">Specified Location</label>
-          <input type="text" id="specifiedLocation" name="specifiedLocation" placeholder="Please enter a specified location" formControlName="specifiedLocation">
-        </div>
-        <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div><br>
-        <div class="submit">
-          <button class="button save" type="submit">Save</button>
-          <button class="button" routerLink="/home/{{voyage.voyage_id}}">Cancel</button>
-        </div>
-      </form>
-      
-</div>

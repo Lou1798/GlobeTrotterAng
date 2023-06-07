@@ -1,30 +1,32 @@
 <app-header [previousPage]="previousPage"></app-header>
-<div>
-  <h2>Change your day</h2>
-</div>
 
-<div>
-  <form [formGroup]="updateDayForm" (ngSubmit)="submitDayUpdate()">  
-    <div class="form">
-        <label for="title">Title</label>
-        <input type="text" id="title" name="title"  formControlName="title">
-      </div>
-      <div class="form">
-        <label for="content">Content</label>
-        <textarea type="content" id="content" name="content"  formControlName="content" rows="6"></textarea>
-      </div>
-      <div class="form">
-        <label for="specifiedTime">Specified Time</label>
-        <input type="date" id="specifiedTime" name="specifiedTime"  formControlName="specifiedTime">
-      </div>
-      <div class="form">
-        <label for="specifiedLocation">Specified Location</label>
-        <input type="text" id="specifiedLocation" name="specifiedLocation"   formControlName="specifiedLocation">
-      </div>
+<div class="center">
+<div class="form-container alignement">
+    <h2 class="mat-display-2" style="font-family: Roboto;">Change your day</h2>
+    <form [formGroup]="updateDayForm" (ngSubmit)="submitDayUpdate()">  
+      <mat-form-field class="form">
+        <mat-label>Title</mat-label>
+        <input matInput type="text" id="title" name="title" formControlName="title">
+      </mat-form-field>
+      <mat-form-field class="form">
+        <mat-label>Content</mat-label>
+        <textarea matInput type="content" id="content" name="content" formControlName="content" rows="6"></textarea>
+      </mat-form-field>
+      <mat-form-field class="form">
+        <mat-label>Specified Time</mat-label>
+        <input matInput [matDatepicker]="specifiedTimePicker" type="text" id="specifiedTime" name="specifiedTime" formControlName="specifiedTime">
+        <mat-datepicker-toggle matSuffix [for]="specifiedTimePicker"></mat-datepicker-toggle>
+        <mat-datepicker #specifiedTimePicker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="form">
+        <mat-label>Specified Location</mat-label>
+        <input matInput type="text" id="specifiedLocation" name="specifiedLocation" formControlName="specifiedLocation">
+      </mat-form-field>
       <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div><br>
       <div class="submit">
-        <button class="button save" type="submit">Save</button>
-        <button class="button" routerLink="/detailday/{{day.day_id}}">Cancel</button>
+        <button mat-raised-button color="primary" type="submit" style="margin-right:10px;margin-left:30px;">Save</button>
+        <button mat-raised-button color="primary" routerLink="/detailday/{{day.day_id}}">Cancel</button>
       </div>
-  </form>
+    </form>
+  </div>
 </div>
