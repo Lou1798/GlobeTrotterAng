@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { DayService } from '../service/day.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { VoyageService } from '../service/voyage.service';
+import { VoyageService } from '../../voyage/service/voyage.service';
 
 @Component({
   selector: 'app-newday',

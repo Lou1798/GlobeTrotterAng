@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from '../voyage/home/home.component';
 import { SignupComponent } from './signup/signup.component';
-import { AddvoyageComponent } from './addvoyage/addvoyage.component';
-import { ListdayComponent } from './listday/listday.component';
-import { EditvoyageComponent } from './editvoyage/editvoyage.component';
-import { NewdayComponent } from './newday/newday.component';
-import { DetaildayComponent } from './detailday/detailday.component';
-import { EditdayComponent } from './editday/editday.component';
+import { AddvoyageComponent } from '../voyage/addvoyage/addvoyage.component';
+import { ListdayComponent } from '../day/listday/listday.component';
+import { EditvoyageComponent } from '../voyage/editvoyage/editvoyage.component';
+import { NewdayComponent } from '../day/newday/newday.component';
+import { DetaildayComponent } from '../day/detailday/detailday.component';
+import { EditdayComponent } from '../day/editday/editday.component';
+
 
 const routes: Routes = [
   {path:'', redirectTo: '/login', pathMatch: 'full'},

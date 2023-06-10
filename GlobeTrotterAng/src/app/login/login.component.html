@@ -14,10 +14,10 @@
             <input matInput type="password" id="password" name="password" formControlName="password">
           </mat-form-field>
         </div><br>
-        <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
-        <div class="contButton">
+        <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div><br><br>
+        <div class="contButton" style="margin-left: -5px;">
           <button mat-raised-button class="button" type="submit" style="margin-right:10px;">Login</button><p>     </p>
-          <button mat-raised-button class="button register" routerLink="/signup">New account</button>
+          <button mat-raised-button class="button register" routerLink="/signup">Signup</button>
         </div>
       </form>
 </div>

@@ -10,15 +10,15 @@ import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from '../voyage/home/home.component';
 import { SignupComponent } from './signup/signup.component'
 import { InterceptorService } from './service/interceptor.service';
-import { AddvoyageComponent } from './addvoyage/addvoyage.component';
-import { NewdayComponent } from './newday/newday.component';
-import { EditdayComponent } from './editday/editday.component';
-import { EditvoyageComponent } from './editvoyage/editvoyage.component';
-import { ListdayComponent } from './listday/listday.component';
-import { DetaildayComponent } from './detailday/detailday.component';
+import { AddvoyageComponent } from '../voyage/addvoyage/addvoyage.component';
+import { NewdayComponent } from '../day/newday/newday.component';
+import { EditdayComponent } from '../day/editday/editday.component';
+import { EditvoyageComponent } from '../voyage/editvoyage/editvoyage.component';
+import { ListdayComponent } from '../day/listday/listday.component';
+import { DetaildayComponent } from '../day/detailday/detailday.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select'
@@ -85,6 +85,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     }),
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [LoginComponent]
 })
 export class AppModule { }
