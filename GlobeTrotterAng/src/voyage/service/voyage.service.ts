@@ -43,9 +43,9 @@ export class VoyageService {
   }
 
 //Recherche des voyages en fonction du nom 
-  searchNameVoyages(search: string): Observable<any> {
-    const url = `${this.baseUrl + 'voyage?name=' + search}`;
-    // console.log('URL: ', url)
+  searchNameVoyages(search: string, user_id: string): Observable<any> {
+    const url = `${this.baseUrl + 'voyages?name=' + search + '&user_id=' + user_id }`;
+    console.log('URL: ', url)
     return this.http.get<any>(url);
   }
 }

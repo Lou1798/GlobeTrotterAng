@@ -55,7 +55,8 @@ export class HomeComponent {
   //Recherche des voyages en fonction du nom
   searchNameVoyages(): void {
     if (this.searchText) {
-      this.voyageService.searchNameVoyages(this.searchText).subscribe(
+      console.log(this.searchText);
+      this.voyageService.searchNameVoyages(this.searchText, this.userid).subscribe(
         (voyagedata: any) => {
           this.voyages = voyagedata;
         },
@@ -64,7 +65,8 @@ export class HomeComponent {
         }
       )
     } else {
-      this.getUserVoyages();
+      console.log("No results");
+      this.voyageService.getUserVoyages(this.userid);
     }
   }
 }

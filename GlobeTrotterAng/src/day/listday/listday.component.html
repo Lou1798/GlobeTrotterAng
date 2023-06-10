@@ -11,7 +11,7 @@
   <div style="margin:50px;">
   <mat-grid-list cols="4" rowHeight="2:1" gutterSize="15px">
       <mat-grid-tile *ngFor="let day of days" class="mat-elevation-z4" style="border-radius: 4px;" routerLink="/detailday/{{ day.day_id }}">
-        <div class="center">
+        <div class="center text-center">
           <p class="mat-h2">{{ day.title }}</p>
           <p class="middle">{{ day.formattedDate }}</p></div>
         </mat-grid-tile>
